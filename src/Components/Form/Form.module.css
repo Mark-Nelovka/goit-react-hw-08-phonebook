@@ -1,0 +1,18 @@
+.form {
+  border: 2px solid grey;
+  width: 400px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 20px;
+}
+
+.input {
+  display: block;
+  margin: 10px 0;
+}
+
+.btn {
+  width: 150px;
+  margin-top: auto;
+}
