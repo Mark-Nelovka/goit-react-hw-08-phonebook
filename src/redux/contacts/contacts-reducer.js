@@ -3,21 +3,18 @@ import { createReducer } from '@reduxjs/toolkit';
 import actions from './actions';
 
 const items = createReducer([], {
-    [actions.fetchContacts.fulfilled]: (_, { payload }) => payload,
-    [actions.deleteContacts.fulfilled]: (state, { payload }) => {
-        return state.filter(({ id }) => id !== payload)
-    }
+  [actions.addContacts.fulfilled]: (state, { payload }) => [...state, payload],
+  [actions.fetchContacts.fulfilled]: (_, { payload }) => payload,
+  [actions.deleteContacts.fulfilled]: (state, { payload }) => {
+    return state.filter(({ id }) => id !== payload);
+  },
 });
 
 const filter = createReducer('', {
-    [actions.filterName]: (_, { payload }) => payload
+  [actions.filterName]: (_, { payload }) => payload,
 });
 
-
-
-
-
 export default combineReducers({
-    items,
-    filter,
-})
+  items,
+  filter,
+});

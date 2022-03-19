@@ -1,18 +1,41 @@
-.ul {
-  text-decoration: none;
+.ol {
+  width: 300px;
+}
+
+/* .li {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+} */
+
+.containerButton {
+  display: flex;
+  /* justify-content: space-between; */
+  margin-top: 10px;
 }
 
 .li:not(:last-child) {
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
-.btn {
-  margin-left: 15px;
+.btnUpdate {
+  border: none;
   width: 70px;
-  font-size: 13px;
+  font-size: 14px;
+  margin-left: 1px;
 }
 
-.btn:hover {
+.btnDelete {
+  border: none;
+  width: 70px;
+  font-size: 14px;
+}
+
+.btnDelete:hover {
   background-color: rgba(243, 7, 7, 0.9);
   color: white;
+}
+
+.btnUpdate:hover {
+  background-color: rgb(131, 241, 140);
 }
