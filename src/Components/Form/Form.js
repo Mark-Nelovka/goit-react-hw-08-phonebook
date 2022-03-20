@@ -3,9 +3,6 @@ import { useDispatch } from 'react-redux';
 import actions from 'redux/contacts/actions';
 import PropTypes from 'prop-types';
 import s from './Form.module.css';
-// import actions from "redux/contacts/actions";
-// import axios from "axios";
-// import { nanoid } from "nanoid";
 
 export default function Form() {
   const [name, setName] = useState('');

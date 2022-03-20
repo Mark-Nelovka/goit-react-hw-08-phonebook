@@ -1,4 +1,4 @@
-import { useState, lazy, Suspense, useEffect } from 'react';
+import { useEffect } from 'react'; // useState, lazy, Suspense,
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import Navigations from 'Components/Navigations/Navigation';
@@ -10,7 +10,6 @@ import { refresh } from 'redux/authentication/authOperations';
 
 function App() {
   const token = useSelector(state => state.auth.token);
-  // const isLogin = useSelector(state => state.auth.isLoggedIn);
   const dispatch = useDispatch();
 
   useEffect(() => {
