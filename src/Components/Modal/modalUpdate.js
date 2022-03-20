@@ -2,10 +2,10 @@ import s from './modalUpdate.module.css';
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
 export default function ModalUpdate({ updateContact, onUpdate, dontUpdate }) {
   const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
+  const [number, setNumber] = useState('');
+  const { id } = updateContact;
   const handleSubmitUpdate = e => {
     console.log(e);
   };
@@ -15,8 +15,8 @@ export default function ModalUpdate({ updateContact, onUpdate, dontUpdate }) {
     switch (name) {
       case 'name':
         return setName(value);
-      case 'email':
-        return setEmail(value);
+      case 'number':
+        return setNumber(value);
       default:
         return;
     }
@@ -30,7 +30,7 @@ export default function ModalUpdate({ updateContact, onUpdate, dontUpdate }) {
         >{`Update contact ${updateContact.name}`}</b>
         <Form className={s.form} onSubmit={handleSubmitUpdate}>
           <Form.Group className="mb-3" controlId="formBasicName">
-            <Form.Label>Name</Form.Label>
+            <Form.Label> New name</Form.Label>
             <Form.Control
               type="text"
               placeholder="Enter name"
@@ -40,25 +40,22 @@ export default function ModalUpdate({ updateContact, onUpdate, dontUpdate }) {
             />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
+          <Form.Group className="mb-3" controlId="formBasicNumber">
+            <Form.Label>New phone</Form.Label>
             <Form.Control
-              type="email"
-              placeholder="Enter email"
+              type="tel"
+              placeholder="Enter new phone"
               onChange={changeInputValue}
-              name="email"
-              value={email}
+              name="number"
+              value={number}
             />
-            <Form.Text className="text-muted">
-              We'll never share your email with anyone else.
-            </Form.Text>
           </Form.Group>
         </Form>
         <div className={s.containerqwe}>
           <button
             className={s.btnYes}
             type="button"
-            onClick={() => onUpdate(onUpdate.id)}
+            onClick={() => onUpdate({ id, name, number })}
           >
             Update
           </button>

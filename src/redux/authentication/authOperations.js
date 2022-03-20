@@ -39,7 +39,6 @@ const logOut = createAsyncThunk('auth/logOut', async userToken => {
   try {
     const { data } = await axios.post('/users/logout', userToken);
     Notiflix.Notify.success('logOut');
-    console.log(data);
     token.unset();
 
     return data;

@@ -1,5 +1,5 @@
-import { useState, lazy, Suspense } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import actions from 'redux/contacts/actions';
 import Form from '../Form/Form';
 import ContactList from '../Contacts/ContactList';
@@ -7,6 +7,7 @@ import Filter from '../Filter/Filtet';
 import WindowModal from '../Modal/Modal';
 import ModalUpdate from 'Components/Modal/modalUpdate';
 import s from './phonebook.module.css';
+import Notiflix from 'notiflix';
 
 function Phonebook() {
   const dispatch = useDispatch();
@@ -15,7 +16,6 @@ function Phonebook() {
   const [deleteName, setDeleteName] = useState('');
   const [updateContact, setUpdateContact] = useState({
     id: '',
-    contact: {},
   });
 
   const onDelete = contactDeleteDId => {
@@ -35,19 +35,24 @@ function Phonebook() {
   };
 
   const onUpdate = contactDeleteDId => {
-    dispatch(actions.deleteContacts(contactDeleteDId));
+    const { name, number } = contactDeleteDId;
+    if (!name || !number) {
+      Notiflix.Notify.info(
+        'Для изменения контакта необходимо заполнить все поля'
+      );
+      return;
+    }
+    dispatch(actions.userUpdate(contactDeleteDId));
     dispatch(actions.fetchContacts());
-    setIsOpen(false);
+    setOpnenUpdate(false);
   };
 
   const dontUpdate = () => {
-    setIsOpen(false);
-    setDeleteName('');
+    setOpnenUpdate(false);
   };
 
   const onUpdateContact = user => {
     setOpnenUpdate(true);
-    console.log(user);
     setUpdateContact(user);
   };
 

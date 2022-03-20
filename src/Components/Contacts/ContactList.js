@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import s from './ContList.module.css';
 import { useSelector } from 'react-redux';
-// import Login from 'Components/LoginUser/Login';
+import { nanoid } from '@reduxjs/toolkit';
 
 export default function ContactList({ onRemoveContact, onUpdateContact }) {
   const contacts = useSelector(state => state.contacts.items);
@@ -20,13 +20,13 @@ export default function ContactList({ onRemoveContact, onUpdateContact }) {
         {filterName &&
           filterName.map(({ id, name, number }) => {
             return (
-              <li className={s.li} key={id}>
+              <li className={s.li} key={nanoid()}>
                 {name}: {number}
                 <div className={s.containerButton}>
                   <button
                     className={s.btnDelete}
                     name="delete"
-                    onClick={() => onRemoveContact(id)}
+                    onClick={() => onRemoveContact({ id, name })}
                     type="button"
                   >
                     Delete
@@ -34,7 +34,7 @@ export default function ContactList({ onRemoveContact, onUpdateContact }) {
                   <button
                     className={s.btnUpdate}
                     name="delete"
-                    onClick={() => onUpdateContact({ id, name, number })}
+                    onClick={() => onUpdateContact({ id })}
                     type="button"
                   >
                     Update

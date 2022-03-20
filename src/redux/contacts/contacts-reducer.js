@@ -8,6 +8,7 @@ const items = createReducer([], {
   [actions.deleteContacts.fulfilled]: (state, { payload }) => {
     return state.filter(({ id }) => id !== payload);
   },
+  [actions.userUpdate.fulfilled]: (state, { payload }) => [...state, payload],
 });
 
 const filter = createReducer('', {
