@@ -6,6 +6,7 @@ import Register from './Components/registerUser/register';
 import HomePage from 'Components/HomePage/HomePage';
 import Login from 'Components/LoginUser/Login';
 import Phonebook from 'Components/Phonebook/phonebook';
+import NotFound from 'Components/NotFound/NotFound';
 import { refresh } from 'redux/authentication/authOperations';
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
           path="/phonebook"
           element={token ? <Phonebook /> : <Navigate to="/login" />}
         />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </>
   );

@@ -7,3 +7,17 @@
   margin-right: 20px;
   margin-left: 20px;
 }
+
+.logOutBtn {
+  border: none;
+  background-color: inherit;
+  display: inline-block;
+  text-decoration: none;
+  padding: 12px;
+  font-weight: 500;
+  color: rgb(17, 15, 15);
+}
+
+.logOutBtn:hover {
+  transform: scale(1.2);
+}

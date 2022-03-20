@@ -1,3 +1,9 @@
 .inputFilter {
   margin-bottom: 15px;
+  width: 250px;
+  padding: 3px 7px;
+  border-right: none;
+  border-left: none;
+  border-top: none;
+  border-bottom: 1px solid black;
 }

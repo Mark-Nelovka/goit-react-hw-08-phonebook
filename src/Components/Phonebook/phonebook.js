@@ -58,10 +58,10 @@ function Phonebook() {
 
   return (
     <section className={s.section}>
-      <h1> Phonebook</h1>
+      <h1>Phonebook</h1>
       <Form />
       <h2>Contacts</h2>
-      <p>Поиск контакта по имени</p>
+      {/* <p>Поиск контакта по имени</p> */}
       <Filter />
       <ContactList
         onRemoveContact={removeContact}

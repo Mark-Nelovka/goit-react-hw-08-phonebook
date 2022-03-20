@@ -34,8 +34,10 @@
 .btnDelete:hover {
   background-color: rgba(243, 7, 7, 0.9);
   color: white;
+  transform: scale(1.1);
 }
 
 .btnUpdate:hover {
   background-color: rgb(131, 241, 140);
+  transform: scale(1.1);
 }

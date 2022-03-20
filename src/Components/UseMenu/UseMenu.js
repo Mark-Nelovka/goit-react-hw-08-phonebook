@@ -14,7 +14,9 @@ function UseMenu() {
       <div className={s.formContainer}>
         <b>{email}</b>
         <form className={s.form} onSubmit={submitLogOut}>
-          <button type="submit">LogOut</button>
+          <button className={s.logOutBtn} type="submit">
+            LogOut
+          </button>
         </form>
       </div>
     </>

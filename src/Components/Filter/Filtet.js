@@ -18,6 +18,7 @@ export default function Filter() {
         type="text"
         name="filter"
         value={value}
+        placeholder="Search for a contact by name"
       />
     </label>
   );

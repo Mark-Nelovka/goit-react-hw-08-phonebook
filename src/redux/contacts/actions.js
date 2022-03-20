@@ -23,7 +23,7 @@ const fetchContacts = createAsyncThunk(
 
       return data;
     } catch (error) {
-      Notiflix.Notify.failure(error);
+      Notiflix.Notify.failure('Не удалось загрузить контакты');
     }
   }
 );
@@ -41,10 +41,10 @@ const addContacts = createAsyncThunk(
         name,
         number,
       });
-      Notiflix.Notify.success('+++++');
+      Notiflix.Notify.success(`Контакт ${name} успешно добавлен`);
       return data;
     } catch (error) {
-      Notiflix.Notify.failure(`addError${error}`);
+      Notiflix.Notify.failure('Пользовате не добавлен');
     }
   }
 );
@@ -59,10 +59,10 @@ const deleteContacts = createAsyncThunk(
 
     try {
       const { data } = await axios.delete(`/contacts/${id}`);
-      Notiflix.Notify.success('-------');
+      Notiflix.Notify.success(`Контакт удалён`);
       return data;
     } catch (error) {
-      Notiflix.Notify.failure(`addError${error}`);
+      Notiflix.Notify.failure('Не удалось удалить контакт');
     }
   }
 );
@@ -75,10 +75,10 @@ const userUpdate = createAsyncThunk(
     token.set(tokenForUserUpdate);
     try {
       const { data } = await axios.patch(`/contacts/${id}`, { name, number });
-      Notiflix.Notify.success('UPDATE');
+      Notiflix.Notify.success(`Контакт обновлён`);
       return data;
     } catch (error) {
-      Notiflix.Notify.failure(`addError${error}`);
+      Notiflix.Notify.failure('Не удалось обновить контакт');
     }
   }
 );
