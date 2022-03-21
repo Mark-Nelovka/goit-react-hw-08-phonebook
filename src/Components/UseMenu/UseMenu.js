@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { logOut } from 'redux/authentication/authOperations';
 import s from './UseMenu.module.css';
 function UseMenu() {
-  const email = useSelector(state => state.auth.user.email);
+  const emailUser = useSelector(state => state.auth.user.email);
   const dispatch = useDispatch();
   const token = useSelector(state => state.auth.token);
   const submitLogOut = e => {
@@ -12,7 +12,7 @@ function UseMenu() {
   return (
     <>
       <div className={s.formContainer}>
-        <b>{email}</b>
+        <b>{emailUser}</b>
         <form className={s.form} onSubmit={submitLogOut}>
           <button className={s.logOutBtn} type="submit">
             LogOut

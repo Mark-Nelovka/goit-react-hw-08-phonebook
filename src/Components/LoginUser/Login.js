@@ -6,6 +6,7 @@ import { login } from '../../redux/authentication/authOperations';
 import s from './Login.module.css';
 function Login() {
   const [email, setEmail] = useState('');
+  console.log(email);
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
 
@@ -37,7 +38,7 @@ function Login() {
           placeholder="Enter email"
           onChange={changeInputValue}
           name="email"
-          value={email}
+          value={email ? email : ''}
         />
         <Form.Text className="text-muted">
           We'll never share your email with anyone else.
@@ -51,7 +52,7 @@ function Login() {
           placeholder="Password"
           name="password"
           onChange={changeInputValue}
-          value={password}
+          value={password ? password : ''}
         />
       </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicCheckbox">
